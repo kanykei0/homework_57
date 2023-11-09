@@ -29,6 +29,14 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
     onSubmit({
       ...user,
     });
+    setUser({
+      name: "",
+      email: "",
+      active: false,
+      role: "",
+    });
+
+    setChecked(false);
   };
 
   const checkBoxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +60,7 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
           className="form-control"
           value={user.name}
           onChange={changeUser}
+          required
         />
       </div>
       <div className="form-group">
@@ -63,6 +72,7 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
           className="form-control"
           value={user.email}
           onChange={changeUser}
+          required
         />
       </div>
       <div className="form-group">
@@ -74,6 +84,7 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
           value={user.role}
           onChange={changeUser}
         >
+          <option value="">...</option>
           <option value="user">User</option>
           <option value="editor">Editor</option>
           <option value="admin">Admin</option>

@@ -6,9 +6,13 @@ interface Props {
 }
 const UserItem: React.FC<Props> = ({ user }) => {
   let isActive = "inactive";
+  let userRole = user.role;
 
   if (user.active === true) {
-    isActive = "avtive";
+    isActive = "active";
+  }
+  if (user.role === "") {
+    userRole = "User";
   }
 
   return (
@@ -18,7 +22,7 @@ const UserItem: React.FC<Props> = ({ user }) => {
         <span>{isActive}</span>
         <hr />
         <span>{user.email}</span>
-        <p>{user.role}</p>
+        <p>{userRole}</p>
       </div>
     </div>
   );
